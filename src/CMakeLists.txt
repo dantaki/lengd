@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.8)
+project(lengd)
+set( CMAKE_C_FLAGS "-Wall -g -O3")
+include_directories (../lib/bamtools/src)
+add_executable(lengd lengd.cc)
+TARGET_LINK_LIBRARIES(lengd BamTools-static)
