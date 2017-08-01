@@ -45,12 +45,7 @@ int main(int argc, char *argv[])
 	const RefVector refs = reader.GetReferenceData();
 	map<int32_t, map<int,int> > COV;
 	while (reader.GetNextAlignmentCore(al)){
-		if(al.MapQuality < Q || 
-			al.IsDuplicate()==true || 
-			al.IsFailedQC()==true || 
-			al.IsMapped()==false || 
-			al.IsPrimaryAlignment()==false) 
-			{ continue; } 	
+		if(al.MapQuality < Q || al.IsMapped()==false){ continue; } 	
 		unsigned int rlen=0;
 		vector<CigarOp> cigar = al.CigarData;
 		for(vector<CigarOp>::iterator it= cigar.begin(); it != cigar.end(); ++it)
